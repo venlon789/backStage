@@ -271,6 +271,7 @@ export default {
         this.usersDate = data
         this.userList = data.users
         this.userListTotal = data.total
+        this.$message.success('数据获取成功，请查看结果')
       } catch (error) {
         console.log(error)
       }

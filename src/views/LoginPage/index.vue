@@ -1,29 +1,32 @@
 <template>
-  <div class="login-container">
-    <div class="from-box">
-      <el-form :model="loginForm" :rules="rules" ref="loginFormRef">
-        <el-form-item class="text-login">
-          <img class="login-img" src="@/assets/KKLlogo.png" alt="" />
-        </el-form-item>
-        <el-form-item prop="username">
-          <el-input
-            v-model="loginForm.username"
-            prefix-icon="el-icon-user-solid"
-          ></el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input
-            type="password"
-            v-model="loginForm.password"
-            prefix-icon="el-icon-lock"
-          ></el-input>
-        </el-form-item>
-        <el-form-item class="btn-item">
-          <el-button type="primary" @click="login">登录</el-button>
-          <el-button type="info" @click="resetForm">重置</el-button>
-        </el-form-item>
-      </el-form>
+  <div class="main">
+    <div class="login-container">
+      <div class="from-box">
+        <el-form :model="loginForm" :rules="rules" ref="loginFormRef">
+          <el-form-item class="text-login">
+            <img class="login-img" src="@/assets/KKLlogo.png" alt="" />
+          </el-form-item>
+          <el-form-item prop="username">
+            <el-input
+              v-model="loginForm.username"
+              prefix-icon="el-icon-user-solid"
+            ></el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input
+              type="password"
+              v-model="loginForm.password"
+              prefix-icon="el-icon-lock"
+            ></el-input>
+          </el-form-item>
+          <el-form-item class="btn-item">
+            <el-button type="primary" @click="login">登录</el-button>
+            <el-button type="info" @click="resetForm">重置</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
     </div>
+    <vue-particles color="#dedede"></vue-particles>
   </div>
 </template>
 
@@ -85,6 +88,10 @@ export default {
 </script>
 
 <style scoped lang='less'>
+.main {
+  width: 100wh;
+  height: 100vh;
+}
 .login-container {
   width: 100vw;
   height: 100vh;

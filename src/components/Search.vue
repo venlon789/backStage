@@ -10,7 +10,7 @@
         <el-button
           slot="append"
           icon="el-icon-search"
-          @click="this.$emit('getSearch', inputSearch)"
+          @click="$emit('getSearch', inputSearch)"
         ></el-button>
       </el-input>
       <!-- 插槽 -->

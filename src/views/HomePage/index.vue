@@ -3,11 +3,13 @@
     <!-- 头部退出按钮设置 -->
     <el-header class="header">
       <img src="@/assets/KKL.png" alt="" />
-      <el-button @click="exitBtn">退出登录</el-button>
+      <el-button @click="exitBtn" type="warning" size="mini"
+        >退出登录</el-button
+      >
     </el-header>
     <!-- 左边侧边的导航栏 -->
-    <el-container>
-      <el-aside>
+    <el-container class="aside">
+      <el-aside class="aside-left">
         <div class="openBtn">
           <el-button
             type="info"
@@ -24,6 +26,8 @@
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
+          background-color="#38484d"
+          text-color="#a4cdf3"
           active-text-color="#ffd04b"
           collapse-transition:false
           :default-active="activeIndex"
@@ -35,7 +39,7 @@
             :key="item.id"
           >
             <template slot="title">
-              <i class="el-icon-user-solid"></i>
+              <i class="el-icon-menu"></i>
               <span slot="title">{{ item.authName }}</span>
             </template>
             <!-- 遍历二级菜单 -->
@@ -46,7 +50,7 @@
             >
               <el-menu-item :index="ele.path">
                 <template slot="title">
-                  <i class="el-icon-menu"></i>
+                  <i :class="$route.meta.icon"></i>
                   {{ ele.authName }}
                 </template>
               </el-menu-item>
@@ -55,8 +59,11 @@
         </el-menu>
       </el-aside>
       <!--路由的位置 -->
-      <el-main>
-        <router-view></router-view>
+      <el-main class="main">
+        <div v-if="$route.name === 'home' || $route.name === 'reports'">
+          欢迎登录开课啦后台！
+        </div>
+        <router-view v-else></router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -82,6 +89,7 @@ export default {
     }
   },
   methods: {
+    fn (val) { },
     // 退出登录的操作
     exitBtn () {
       this.$confirm('此操作将退出登录, 是否继续?', '提示', {
@@ -139,7 +147,8 @@ export default {
 .container {
   height: 100vh;
   .el-header {
-    background-color: #a4cdf3;
+    background-color: #ffffff;
+    border: 1px solid #ebeef5;
   }
   .el-aside {
     background-color: #38484d;
@@ -150,6 +159,9 @@ export default {
   }
   // 头部退出按钮设置
   .header {
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -176,6 +188,9 @@ export default {
   }
   :deep(.activeOpen) {
     width: 200px !important;
+    border: 0;
+    background-color: #4e7c85;
+    border-color: unset;
   }
 }
 .el-menu {
@@ -184,5 +199,19 @@ export default {
 }
 :deep(.el-submenu__title) {
   color: #ffffff;
+}
+.main {
+  overflow: scroll;
+  margin-left: 200px;
+}
+.aside {
+  margin-top: 60px;
+}
+.aside-left {
+  position: fixed;
+  height: 100%;
+}
+.container .header .el-button {
+  height: 30px;
 }
 </style>
