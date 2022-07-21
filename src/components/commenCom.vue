@@ -2,8 +2,8 @@
   <div class="box">
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>{{ onemenu }}</el-breadcrumb-item>
-      <el-breadcrumb-item>{{ twomenu }}</el-breadcrumb-item>
+      <el-breadcrumb-item>{{ $route.meta.onemenu }}</el-breadcrumb-item>
+      <el-breadcrumb-item>{{ $route.meta.twomenu }}</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 内容区域 -->
     <el-card class="box-card">
@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
-const { mapState } = createNamespacedHelpers('user')
 export default {
   //   // 有homepage传值过来
   data () {
@@ -26,7 +24,6 @@ export default {
   methods: {
   },
   computed: {
-    ...mapState(['onemenu', 'twomenu'])
   },
   watch: {},
   filters: {},

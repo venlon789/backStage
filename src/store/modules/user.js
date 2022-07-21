@@ -1,9 +1,7 @@
 import { getToken, setToken } from '@/utils/auth'
 const state = {
-  token: getToken() || '',
+  token: getToken() || ''
   // 面包屑
-  onemenu: '',
-  twomenu: ''
 
 }
 const mutations = {
@@ -11,13 +9,13 @@ const mutations = {
     console.log(token)
     state.token = token
     setToken(token)
-  },
-  setOnemenu (state, menu1) {
-    state.onemenu = menu1
-  },
-  setTwomenu (state, menu2) {
-    state.twomenu = menu2
   }
+  // setOnemenu (state, menu1) {
+  //   state.onemenu = menu1
+  // },
+  // setTwomenu (state, menu2) {
+  //   state.twomenu = menu2
+  // }
 }
 const actions = {}
 export default {

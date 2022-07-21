@@ -43,11 +43,7 @@
               <span slot="title">{{ item.authName }}</span>
             </template>
             <!-- 遍历二级菜单 -->
-            <el-menu-item-group
-              v-for="ele in item.children"
-              :key="ele.id"
-              @click.stop.native="getCurrentMenu(item, ele)"
-            >
+            <el-menu-item-group v-for="ele in item.children" :key="ele.id">
               <el-menu-item :index="ele.path">
                 <template slot="title">
                   <i :class="$route.meta.icon"></i>
@@ -89,7 +85,9 @@ export default {
     }
   },
   methods: {
-    fn (val) { },
+    fn (val) {
+      console.log(this.$route.matched)
+    },
     // 退出登录的操作
     exitBtn () {
       this.$confirm('此操作将退出登录, 是否继续?', '提示', {
@@ -129,12 +127,13 @@ export default {
     },
     openFn () {
       this.open = !this.open
-    },
-    // 获取当前的菜单
-    getCurrentMenu (onemenu, twomenu) {
-      this.$store.commit('user/setOnemenu', onemenu.authName)
-      this.$store.commit('user/setTwomenu', twomenu.authName)
+      console.log(this.$route.matched)
     }
+    // // 获取当前的菜单
+    // getCurrentMenu (onemenu, twomenu) {
+    //   this.$store.commit('user/setOnemenu', onemenu.authName)
+    //   this.$store.commit('user/setTwomenu', twomenu.authName)
+    // }
   },
   computed: {},
   watch: {},
