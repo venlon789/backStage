@@ -147,7 +147,7 @@ export default {
 .container {
   height: 100vh;
   .el-header {
-    background-color: #ffffff;
+    background-color: #4785c4;
     border: 1px solid #ebeef5;
   }
   .el-aside {
@@ -189,7 +189,7 @@ export default {
   :deep(.activeOpen) {
     width: 200px !important;
     border: 0;
-    background-color: #4e7c85;
+    background-color: rgb(255, 208, 75);
     border-color: unset;
   }
 }
@@ -203,6 +203,7 @@ export default {
 .main {
   overflow: scroll;
   margin-left: 200px;
+  background-color: #f0f7ff !important;
 }
 .aside {
   margin-top: 60px;
@@ -213,5 +214,8 @@ export default {
 }
 .container .header .el-button {
   height: 30px;
+}
+.container .el-menu-vertical-demo[data-v-94c9e06a]:not(.el-menu--collapse) {
+  width: unset;
 }
 </style>

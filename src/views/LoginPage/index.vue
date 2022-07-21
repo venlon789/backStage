@@ -95,7 +95,7 @@ export default {
 .login-container {
   width: 100vw;
   height: 100vh;
-  background-color: #409eff;
+  background-color: #4785c4;
   display: flex;
   justify-content: center;
   align-items: center;
